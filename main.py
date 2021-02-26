@@ -1,13 +1,27 @@
 """
     Tabulate for Table formed data
-    IMPORTED TIME TO MAKE IT REAL NOT GETTING PAID ENOUGH SO SKIPPED 
     Complete
 
     > Assuming Total money always starts with 0
     > Assuming up and down tickets always start from 480 or 640
+    
+    >>>>> Guide for Beginners
+    > Sys aka system library allows us to manipulate system / runtime environment meaning
+      we can alter how our enviornment/variables behave
+    > stdout used to hold data inside a buffer
+    > std flush used to plus out all the data inside the buffer in terminal
+
+    > Zip method takes two lists and arranges them in a tuple
+      suppose i have two lists called List1= [10,20] and List2 = [30,40]
+      when used with the Zip method a tuple is returned
+      e.g Tuple1 = list(zip(List1,List2))
+      when Tuple1 is printed onto screen it will give an output of[(10,30), (20,40)]
+
 """
 
 from tabulate import tabulate
+from sys import stdout
+from time import sleep
 
 UP_TIME = ['9:00', '11:00', '13:00', '15:00']
 UP_TICKET = [480, 480, 480, 480]
@@ -34,6 +48,12 @@ def main_tabel():
 
     print(tabulate(MAIN_TABLE, headers, tablefmt="fancy_grid"))
 
+def printt(string, delay = 0.005):
+  for character in string:
+    stdout.write(character)
+    stdout.flush()
+    sleep(delay)
+  print("")
 
 def final_table():
     headers = ["Total Passanger", "Total Money"]
@@ -57,7 +77,7 @@ while X:
             Tickets = int(input('ENTER NUMBER OF TICKETS: '))
             y = False
         except ValueError:
-            print("Please enter integre values only")
+            printt("Please enter integre values only", delay=0.05)
             y = True
     Departure = input('Enter departure time: ')
     if Departure == "dev":
@@ -73,10 +93,9 @@ while X:
         passangers = max(TOTAL_PASSANGERS_)
 
         final_table()
-        print(
-            f"Journey {final_journey} had the highest number of passangers: {passangers}"
-        )
-        print(f"Total Money taken for the day is {ttl_money}")
+        printt(
+            f"Journey {final_journey} had the highest number of passangers: {passangers}", delay= 0.05)
+        printt(f"Total Money taken for the day is {ttl_money}" , delay=0.05)
 
         X = False
         break
@@ -176,4 +195,5 @@ while X:
 """
     ALI™ FINALIZE EVERYTHIN
     FIX DAT ISSUE IF YOU READ THIS
+    
 """
