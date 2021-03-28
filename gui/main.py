@@ -170,7 +170,7 @@ class SecondWindow(Screen):
             animate.start(widget)
 
     def yes_button_dialog(self, obj):
-        """BRAIN OF THE SCRIPT FUCK DEBUGGING FUCKING FINISH THIS FAST NOW BRO"""
+        """BRAIN OF THE SCRIPT FINISH THIS FAST NOW BRO"""
         user_input_ticket = self.user_ticket
         user_input_time = self.user_time
         if user_input_time in self.UP_TIME:
