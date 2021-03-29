@@ -4,22 +4,6 @@ WindowManager:
     SecondWindow:
 
 
-<CustomPopup>:
-    Popup:
-        title: "This is my popup"
-        auto_dismiss: True
-        size_hint: 0.6, 0.2
-        pos_hint: {"x": 0.2, "top": 0.9}
-        BoxLayout:
-            orientation: 'vertical'
-            size: root.width, root.height
-            MDLabel:
-                text: "WELCOME"
-                font_size: 40
-            Button:
-                text:"Closeme"
-
-
 <FirstWindow>:
     name: 'first'
 
@@ -115,12 +99,25 @@ WindowManager:
         user_font_size: "128sp"
         on_press: app.chg()
 
+    MDIconButton:
+        icon: "alert-box-outline"
+        pos_hint: {"center_x": .95, "center_y": .95}
+        user_font_size: "64sp"
+        on_press : root.about_dialog()
+
+    MDIconButton:
+        icon: "table-eye"
+        pos_hint: {"center_x": .85, "center_y": .95}
+        user_font_size: "64sp"
+        on_press: root.table_screen()
+
+
     MDTextField:
         id: ticket_check
         hint_text: "Enter Ticket"
         helper_text: "Check out our prices if not sure"
         helper_text_mode: "on_focus"
-        icon_right: "language-python"
+        icon_right: "ticket"
         icon_right_color: app.theme_cls.primary_color
         pos_hint: {'center_x': 0.5, 'center_y': 0.4}
         size_hint_x:None
@@ -131,7 +128,7 @@ WindowManager:
         hint_text: "Enter Time"
         helper_text: "Check out our timings"
         helper_text_mode: "on_focus"
-        icon_right: "language-python"
+        icon_right: "clock-time-eight-outline"
         icon_right_color: app.theme_cls.primary_color
         pos_hint: {'center_x': 0.5, 'center_y': 0.3}
         size_hint_x:None
@@ -158,8 +155,4 @@ WindowManager:
                 type: 'bottom'
                 elevation: 24
                 on_action_button : root.logout()
-
-
-
-
 
